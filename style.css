@@ -1,0 +1,153 @@
+:root {
+    --primary-color: #2563eb;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-color: #1e293b;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* MODIFICAÇÃO: book-card agora é flex para a capa ficar ao lado */
+.book-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    display: flex; 
+    flex-direction: row;
+}
+
+/* NOVA REGRA: Estilo da Capa */
+.book-cover {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    border-right: 1px solid #e2e8f0;
+    background-color: #eee;
+}
+
+/* NOVA REGRA: O conteúdo do livro ocupa o resto do card */
+.book-content {
+    flex: 1;
+}
+
+.book-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.chapter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chapter-item {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.chapter-item:last-child {
+    border-bottom: none;
+}
+
+.chapter-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background 0.2s;
+}
+
+.download-icon {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.nav-menu {
+    background: var(--card-bg);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 30px;
+}
+
+.nav-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.grupo-section {
+    padding-top: 20px;
+    margin-bottom: 50px;
+}
+
+.titulo-categoria {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* AJUSTE MOBILE: Capa em cima no celular */
+@media (max-width: 600px) {
+    .book-card {
+        flex-direction: column;
+    }
+    .book-cover {
+        width: 100%;
+        height: 150px;
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    .nav-container {
+        font-size: 0.7rem;
+        gap: 5px;
+    }
+}
+
+@media (min-width: 768px) {
+    .chapter-link:hover {
+        background-color: #f1f5f9;
+    }
+}
